@@ -4,7 +4,7 @@
  * QuoteMaker a simple library to create quote image
  * Inspired from @yang.terdalam instagram account
  * 
- * Source: https://github.com/masokky
+ * Source: https://github.com/masokky/QuoteMaker
  *
  * Feel free to develop and maintain this library
  *
@@ -45,13 +45,13 @@ class QuoteMaker {
 	 * Default quote font
 	 * @var string
 	 */
-	protected static $quote_font = "font/BiminiCondensed.ttf";
+	protected static $quote_font = "./assets/font/BiminiCondensed.ttf";
 
 	/**
 	 * Default watermark font
 	 * @var string
 	 */
-	protected static $watermark_font = "font/Goldfinger Kingdom.ttf";
+	protected static $watermark_font = "./assets/font/Goldfinger Kingdom.ttf";
 
 	/**
 	 * Quote font size
@@ -251,8 +251,8 @@ class QuoteMaker {
 		self::$image
 				->resize(720,720)
 				->darken(20)
-				->overlay("img/quote-mark-top.png","center",1,0,-250)
-				->overlay("img/quote-mark-bottom.png","center",1,0,100);
+				->overlay("./assets/img/quote-mark-top.png","center",1,0,-250)
+				->overlay("./assets/img/quote-mark-bottom.png","center",1,0,100);
 		return $this;
 	}
 	private function write_quote(){
