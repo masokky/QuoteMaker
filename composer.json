@@ -1,0 +1,22 @@
+{
+  "name": "masokky/quotemaker",
+  "description": "Simple library to create quote image",
+  "license": "MIT",
+  "require": {
+    "php": ">=5.6.0",
+    "ext-gd": "*",
+    "claviska/simpleimage": "3.*"
+  },
+  "authors": [
+    {
+      "name": "Okky Alvianto",
+      "homepage": "http://masokky.github.io/",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-0": {
+      "masokky": "src/"
+    }
+  }
+}
