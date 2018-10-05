@@ -45,13 +45,25 @@ class QuoteMaker {
 	 * Default quote font
 	 * @var string
 	 */
-	protected static $quote_font = "./assets/font/BiminiCondensed.ttf";
+	protected static $quote_font = __DIR__."/assets/font/BiminiCondensed.ttf";
 
 	/**
 	 * Default watermark font
 	 * @var string
 	 */
-	protected static $watermark_font = "./assets/font/Goldfinger Kingdom.ttf";
+	protected static $watermark_font = __DIR__."/assets/font/Goldfinger Kingdom.ttf";
+
+	/**
+	 * Default top quote mark
+	 * @var string
+	 */
+	protected static $top_quote_mark = __DIR__."/assets/img/quote-mark-top.png";
+
+	/**
+	 * Default bottom quote mark
+	 * @var string
+	 */
+	protected static $bottom_quote_mark = __DIR__."/assets/img/quote-mark-bottom.png";
 
 	/**
 	 * Quote font size
@@ -251,8 +263,8 @@ class QuoteMaker {
 		self::$image
 				->resize(720,720)
 				->darken(20)
-				->overlay("./assets/img/quote-mark-top.png","center",1,0,-250)
-				->overlay("./assets/img/quote-mark-bottom.png","center",1,0,100);
+				->overlay(self::$top_quote_mark,"center",1,0,-250)
+				->overlay(self::$bottom_quote_mark,"center",1,0,100);
 		return $this;
 	}
 	private function write_quote(){
