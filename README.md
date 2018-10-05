@@ -51,3 +51,5 @@ Output the result to the screen
 Save the result to image file
 
 *Default see the example result
+
+```Feel free to develop and maintain this library```
