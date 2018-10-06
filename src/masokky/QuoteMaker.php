@@ -30,12 +30,6 @@ class QuoteMaker {
 	protected static $watermark;
 
 	/**
-	 * Background keyword
-	 * @var string
-	 */
-	protected static $background_keyword = "random";
-
-	/**
 	 * Background image
 	 * @var Base64 format
 	 */
