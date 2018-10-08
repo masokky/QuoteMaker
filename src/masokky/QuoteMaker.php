@@ -39,7 +39,7 @@ class QuoteMaker {
 	 * Default quote font
 	 * @var string
 	 */
-	protected static $quote_font = __DIR__."/assets/font/BiminiCondensed.ttf";
+	protected static $quote_font = __DIR__."/assets/font/BiminiCondensed.TTF";
 
 	/**
 	 * Default watermark font
@@ -143,7 +143,7 @@ class QuoteMaker {
     	    	$api = "search/photos?page=".rand(1,3)."&query=".$keyword;
     		}
     		$url = self::$unsplash_api_url.$api."&client_id=".$client_id;
-    		@$data = json_decode(file_get_contents($url),true);
+    		@$data = json_decode(self::curlSendRequest($url),true);
     		if(is_array($data)){
     			$invalid_client_id = false;
     			break;
@@ -157,7 +157,7 @@ class QuoteMaker {
     	   	$data = $data["results"];
     	   	$data = $data[array_rand($data)];
     	}
-    	self::$image->fromString(file_get_contents($data["urls"]["regular"]));
+    	self::$image->fromDataUri("data:image/jpeg;base64,".base64_encode(self::curlSendRequest($data["urls"]["regular"])));
 		return $this;
 	}
 
@@ -247,6 +247,15 @@ class QuoteMaker {
 	/**
 	 * Background methods to create the image
 	 */
+	private function curlSendRequest($url){
+		$curl = curl_init();
+		curl_setopt($curl, CURLOPT_URL, $url);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+		$result = curl_exec($curl);
+		curl_close($curl);
+		return $result;
+	}
 	private function clientId($client_id=null){
 		if(empty($client_id) || !is_array($client_id))
 			throw new \Exception("Invalid client id: Client id is empty or not passed in array type");
