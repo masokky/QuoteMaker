@@ -209,7 +209,7 @@ class QuoteMaker {
 	 * Set the quote text
 	 * @param string
 	 */
-	public function quote($quoteText=null){
+	public function quoteText($quoteText=null){
 		if(empty($quoteText) || !is_string($quoteText))
 			throw new \Exception("Invalid quote value");
 		self::$quote = strtoupper(trim($quoteText));
@@ -220,7 +220,7 @@ class QuoteMaker {
 	 * Set the watermark text
 	 * @param string
 	 */
-	public function watermark($watermarkText=null){
+	public function watermarkText($watermarkText=null){
 		if(!$watermarkText)
 			self::$watermark = "";
 		else
@@ -272,7 +272,13 @@ class QuoteMaker {
 	}
 	private function write_quote(){
 		$quote = wordwrap(self::$quote,50,"\n");
-		$quote = explode("\n",$quote);
+		$quote = str_replace("\\N","\n",$quote);
+		$quote = array_filter(explode("\n",$quote));
+		$tmp_quote = [];
+		foreach($quote as $q){
+		    $tmp_quote[] = $q;
+		}
+		$quote = $tmp_quote;
 		$position = $quote;
 		$middle = floor(count($quote)/2);
 		if(count($quote)%2==0)
