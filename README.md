@@ -6,6 +6,9 @@ QuoteMaker is simple library to create quote image
 
 ## Installation
 `composer require masokky/quotemaker`
+  
+  
+If you won't use composer, [click here](https://github.com/masokky/QuoteMaker-simple) with the simple installation
 
 ## Usage
 ```php
