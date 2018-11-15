@@ -6,6 +6,9 @@ QuoteMaker is simple library to create quote image
 
 ## Installation
 `composer require masokky/quotemaker`
+  
+  
+If you won't use composer, [click here](https://github.com/masokky/QuoteMaker-simple) with the simple installation
 
 ## Usage
 ```php
@@ -16,8 +19,8 @@ try{
   $text = "the cruelest crime is giving false hope without love";
     (new QuoteMaker)
       ->setBackgroundFromUnsplash(["b353e61a07cc0068080258kc0294ks85042f2560d6223366500a2aa30ff28052"],"heart")
-      ->quote($text)
-      ->watermark("Mas Okky")
+      ->quoteText($text)
+      ->watermarkText("Mas Okky")
       ->toFile("result.jpg");
 }catch(Exception $e){
   echo $e->getMessage();
@@ -33,13 +36,13 @@ Before use this function, you should create app to get "client_id" for accessing
 Because there is a limit per hour for each "client_id", so you can add two or more "client_id" to increase the limit
 - `$client_id` (array) - The access key of unsplash app
 - `$keyword` (string) - Keyword to search an image, default `random`
-#### `quote($text)`
-- `$text` (string) - Set the quote text
+#### `quoteText($text)`
+- `$text` (string) - Set the quote text. Use `\n` to add line break
 #### `setQuoteFont($path)`
 - `$path` (string) - Set the custom quote font*
 #### `setQuoteFontSize($size)`
 - `$size` (int) - Set the custom quote font size*
-#### `watermark($text)`
+#### `watermarkText($text)`
 - `$text` (string) - Set the watermark text, default `null`
 #### `setWatermarkFont($path)`
 - `$path` (string) - Set the custom watermark font*
