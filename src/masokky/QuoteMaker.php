@@ -144,7 +144,7 @@ class QuoteMaker {
     		}
     		$url = self::$unsplash_api_url.$api."&client_id=".$client_id;
     		@$data = json_decode(self::curlSendRequest($url),true);
-    		if(is_array($data)){
+    		if(is_array($data) && !array_key_exists("errors", $data)){
     			$invalid_client_id = false;
     			break;
     		}
