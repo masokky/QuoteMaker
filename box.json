@@ -1,0 +1,21 @@
+{
+    "alias": "main.phar",
+    "chmod": "0755",
+    "directories": ["src"],
+    "blacklist": [
+        "masokky/assets"
+    ],
+    "finder": [
+        {
+            "name": ["*"],
+            "exclude": ["test","tests","example","examples"],
+            "in": ["vendor","src"]
+        }
+    ],
+    "git-version": "package_version",
+    "main": "main.php",
+    "output": "build/main.phar",
+    "stub": true,
+    "algorithm" :"SHA512"
+}
+

@@ -5,7 +5,8 @@
   "require": {
     "php": ">=5.6.0",
     "ext-gd": "*",
-    "claviska/simpleimage": "3.*"
+    "claviska/simpleimage": "3.*",
+    "league/climate": "^3.5"
   },
   "authors": [
     {
